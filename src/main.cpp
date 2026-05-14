@@ -27,11 +27,11 @@ TEST_CASE( "Test compiler support for function defintions and top-level statemen
   //     "\n"
   //     "# This expression will compute the 40th number.\n"
   //     "fib(40)\n";
-  std::string content = DecafIO::readFileToString("/Users/rachitkakkar/Documents/Projects/CPP/Decaf-Compiler/tests/test6.decaf");
+  std::string content = DecafIO::readFileToString("../tests/test6.decaf");
   // std::cout << content << std::endl;
   DecafScanning::Lexer lexer(content);
   std::vector<DecafScanning::Token> tokens(lexer.tokenize());
-  // DecafLogger::Logger::displayTokenList(tokens);
+  DecafLogger::Logger::displayTokenList(tokens);
   DecafParsing::Parser parser(tokens);
   std::unique_ptr<DecafParsing::AST::Function> AST;
 
@@ -55,7 +55,7 @@ TEST_CASE( "Test compiler support for function defintions and top-level statemen
 // int main(int argc, char* argv[]) {
 //   try {
 //     std::cout << "---------------------------------------------------------" << std::endl;
-//     std::cout << "Lasa Simplified Imperative Language (LaSIL) COMPILER v0.1" << std::endl;
+//     std::cout << "LASA Simplified Imperative Language (LaSIL) COMPILER v0.1" << std::endl;
 //     std::cout << "                  AUTHOR: RACHIT KAKKAR                  " << std::endl;
 //     std::cout << "---------------------------------------------------------\n" << std::endl;
 

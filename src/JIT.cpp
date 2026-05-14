@@ -16,6 +16,7 @@ void JIT::initJIT() {
 
 void DecafJIT::handleFuncDefinition(DecafParsing::Parser* parser) {
   if (auto fnAST = parser->parseFuncDefinition()) {
+    DecafLogger::Logger::displayASTExpr(*fnAST->body);
     if (auto *fnIR = fnAST->codegen()) {
       fprintf(stderr, "Read function definition:");
       fnIR->print(llvm::errs());
@@ -33,6 +34,7 @@ void DecafJIT::handleFuncDefinition(DecafParsing::Parser* parser) {
 double DecafJIT::handleTopLevelStatement(DecafParsing::Parser* parser) {
   DecafLogger::Logger::displayToken(parser->peek().value());
   if (auto fnAST = parser->parseTopLevelExpr()) {
+    DecafLogger::Logger::displayASTExpr(*fnAST->body);
     if (fnAST->codegen()) {
       auto RT = DecafJIT::JIT::JIT_->getMainJITDylib().createResourceTracker();
       auto TSM = llvm::orc::ThreadSafeModule(std::move(DecafCodeGen::CodeGenerator::module_), std::move(DecafCodeGen::CodeGenerator::context));
@@ -42,8 +44,8 @@ double DecafJIT::handleTopLevelStatement(DecafParsing::Parser* parser) {
 
       // Get the symbol's address and cast it to the right type (takes no
       // arguments, returns a double) so we can call it as a native function.
-      // double (*FP)() = exprSymbol.getAddress().toPtr<double (*)()>();
-      double (*FP)() = (double (*)())(intptr_t)exprSymbol.getAddress();
+      double (*FP)() = exprSymbol.getAddress().toPtr<double (*)()>();
+      // double (*FP)() = (double (*)())(intptr_t)exprSymbol.getAddress();
       double result = FP();
       // fprintf(stderr, "Evaluated to \e[1;37;41m%f\e[m\n\n", FP());
       // Delete the anonymous expression module from the JIT.

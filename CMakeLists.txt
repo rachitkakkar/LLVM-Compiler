@@ -3,7 +3,7 @@
 # $ cmake --version
 cmake_minimum_required(VERSION 3.5)
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_COMPILER "/usr/local/llvm/bin/clang++")
+set(CMAKE_CXX_COMPILER "/opt/homebrew/opt/llvm/bin/clang++")
 set(CMAKE_OSX_ARCHITECTURES "arm64")
 
 # Set the project name

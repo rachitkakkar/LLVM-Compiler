@@ -51,7 +51,7 @@ void CodeGenerator::initializeModuleAndPassManager() {
   CodeGenerator::builder = std::make_unique<llvm::IRBuilder<>>(*CodeGenerator::context);
 
   CodeGenerator::SI = std::make_unique<llvm::StandardInstrumentations>(*CodeGenerator::context, /*DebugLogging*/ true);
-  CodeGenerator::SI->registerCallbacks(*CodeGenerator::PIC, CodeGenerator::FAM.get());
+  CodeGenerator::SI->registerCallbacks(*CodeGenerator::PIC, CodeGenerator::MAM.get());
 
   // Add transform passes.
   // Do simple "peephole" optimizations and bit-twiddling optzns.
