@@ -2,6 +2,22 @@
 
 A custom Just-In-Time (JIT) compiler for a simplified imperative langauge built using modern C++ and the LLVM compiler infrastructure (complete pipeline from source code to native machine code execution).
 
+Example program that recursively calculates the Fibonacci numbers:
+```python
+# Compute the x'th fibonacci number recursively.
+def fib(x) {
+  if (x < 3) {
+    1
+  }
+  else {
+    fib(x-1)+fib(x-2)
+  }
+}
+
+# This expression will compute the 40th number.
+fib(40)
+```
+
 ### Note on naming convention:
 This project is referred to in the source code as both a "Decaf" compiler and a compiler for "LaSIL" (which stands for LASA Simplified Imperative Language). The reasons for this are twofold. Firstly, the primary inspiration for this project was the "Decaf Language Reference" used in CS 432 and CS 630 at James Madison University (though the language in its current form shares several differences and is less advanced). Moreover, I first started working on this project as a part of my CS independent study during my time at LASA high school. In order to pay homage to both Decaf and my high school (where I learned a great deal), I've decided the preserve the source code as is, despite the naming inconsistencies.
 
