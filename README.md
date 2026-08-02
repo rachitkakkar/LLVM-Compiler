@@ -32,6 +32,27 @@ This project is referred to in the source code as both a "Decaf" compiler and a 
 
 The compiler's core components are modularized in the `src/` directory:
 
+```
+src/
+├── AST.hpp
+├── CodeGenerator.cpp
+├── CodeGenerator.hpp
+├── FileHandler.cpp
+├── FileHandler.hpp
+├── JIT.cpp
+├── JIT.hpp
+├── KaleidoscopeJIT.hpp
+├── Lexer.cpp
+├── Lexer.hpp
+├── Logger.cpp
+├── Logger.hpp
+├── Parser.cpp
+├── Parser.hpp
+└── main.cpp
+```
+
+The core architecture is as follows:
+
 * `Lexer`: Reads source files and generates a stream of language tokens.
 ![Tokens](img/tokens.png)
 * `Parser`: Consumes tokens to build an Abstract Syntax Tree (AST).
