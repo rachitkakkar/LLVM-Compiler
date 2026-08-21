@@ -348,4 +348,4 @@ entry:
 All tests passed (1 assertion in 1 test case)
 ```
 
-The actual terminal output has a lot more color and formatting as a result of the extensive logging, so it is unfortunate I can't show that here. Refer to the screenshots in the `img/`` directory if you want to get an idea. Also, please note the presence of a bunch of junk print statements left over from when I was debugging the parser. As this is an old project and I am now an electrical/computer engineering major, it is unlikely I will ever clean this up.
+The actual terminal output has a lot more color and formatting as a result of the extensive logging, so it is unfortunate I can't show that here. Refer to the screenshots in the `img/`` directory if you want to get an idea. Also, please note the presence of a bunch of junk print statements left over from when I was debugging the parser. As this is an old project and I am now more focused on projects related to my electrical/computer engineering major, it may be a while before I revist this project or clean this up, if ever.
